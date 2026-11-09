@@ -1,4 +1,6 @@
 name: ox-coal
+explosiveness: 0.2
+flammability: 1
 localizedName: Coal
 description: A combustible mineral.
 color: 343434
