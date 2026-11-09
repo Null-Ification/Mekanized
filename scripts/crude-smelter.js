@@ -188,22 +188,32 @@ Events.on(EventType.ModContentLoadEvent, () => {
                         output = copper;
                     }
 
-                    if (input != null) {
-                        if (
-                            this.items.get(coal) > 0 &&
-                            this.items.get(output) < 10
-                        ) {
-                            this.progress += Time.delta;
+                    const canSmelt =
+                        input != null &&
+                        this.items.get(coal) > 0 &&
+                        this.items.get(output) < 10;
 
-                            if (this.progress >= craftTime) {
-                                this.items.remove(input, 1);
-                                this.items.remove(coal, 1);
-                                this.items.add(output, 1);
+                    this.warmup = Mathf.approach(
+                        this.warmup,
+                        canSmelt ? 1 : 0,
+                        0.02 * Time.delta
+                    );
 
-                                Fx.mine.at(this.x, this.y);
+                    if (canSmelt) {
+                        this.progress += Time.delta;
 
-                                this.progress -= craftTime;
-                            }
+                        if (this.progress >= craftTime) {
+                            this.items.remove(input, 1);
+                            this.items.remove(coal, 1);
+                            this.items.add(output, 1);
+
+                            const effectColor = output == iron
+                                ? Color.valueOf("ffc099")
+                                : Color.valueOf("e58b4a");
+
+                            Fx.mine.at(this.x, this.y, effectColor);
+
+                            this.progress -= craftTime;
                         }
                     }
                 }
