@@ -72,7 +72,9 @@ Events.on(EventType.ModContentLoadEvent, () => {
                         Stat.output,
                         new JavaAdapter(StatValue, {
                             display: function(table) {
-                                // Iron recipe.
+                                table.defaults().left();
+
+                                // Iron recipe
                                 const ironRecipe = new Table(Styles.grayPanel);
                                 ironRecipe.margin(8);
 
@@ -80,14 +82,13 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                     StatValues.displayItem(rawIron, 1, 120, true)
                                 ).left();
 
-                                ironRecipe.add(" > ")
-                                    .padLeft(8).padRight(8);
+                                ironRecipe.add(" > ").padLeft(8).padRight(8);
 
                                 ironRecipe.add(
                                     StatValues.displayItem(iron, 1, 120, true)
                                 ).left();
 
-                                // Copper recipe.
+                                // Copper recipe
                                 const copperRecipe = new Table(Styles.grayPanel);
                                 copperRecipe.margin(8);
 
@@ -95,26 +96,14 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                     StatValues.displayItem(rawCopper, 1, 120, true)
                                 ).left();
 
-                                copperRecipe.add(" > ")
-                                    .padLeft(8).padRight(8);
+                                copperRecipe.add(" > ").padLeft(8).padRight(8);
 
                                 copperRecipe.add(
                                     StatValues.displayItem(copper, 1, 120, true)
                                 ).left();
 
-                                // Fixed dimensions for both recipe cards.
-                                table.add(ironRecipe)
-                                    .width(320)
-                                    .height(72)
-                                    .left()
-                                    .padBottom(6)
-                                    .row();
-
-                                table.add(copperRecipe)
-                                    .width(320)
-                                    .height(72)
-                                    .left()
-                                    .row();
+                                table.add(ironRecipe).width(320).height(72).left().row();
+                                table.add(copperRecipe).width(320).height(72).left().row();
                             }
                         })
                     );
