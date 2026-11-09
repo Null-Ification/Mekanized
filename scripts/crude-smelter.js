@@ -177,12 +177,13 @@ Events.on(EventType.ModContentLoadEvent, () => {
                         ) {
                             this.progress += Time.delta;
 
-                            if (this.progress >= craftTime) {
+                                                        if (this.progress >= craftTime) {
                                 this.items.remove(input, 1);
                                 this.items.remove(coal, 1);
                                 this.items.add(output, 1);
 
                                 this.progress -= craftTime;
+                            }
                         }
                     }
                 }
