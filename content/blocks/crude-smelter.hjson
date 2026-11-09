@@ -9,4 +9,4 @@ category: crafting
 buildVisibility: shown
 
 hasItems: true
-itemCapacity: 10
+itemCapacity: 30
