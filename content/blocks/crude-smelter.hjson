@@ -1,2 +1,8 @@
 type: GenericCrafter
 name: Crude Smelter
+description: A primitive furnace.
+size: 2
+health: 120
+
+category: crafting
+buildVisibility: shown
