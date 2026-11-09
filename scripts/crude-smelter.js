@@ -26,10 +26,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
     const craftTime = 120;
 
     smelter.outputItem = null;
-    smelter.outputItems = ItemStack.with(
-        iron, 1,
-        copper, 1
-    );
+    smelter.outputItems = ItemStack.with();
 
     smelter.consume(
         new JavaAdapter(
