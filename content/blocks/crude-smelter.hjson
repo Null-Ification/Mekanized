@@ -10,3 +10,4 @@ buildVisibility: shown
 
 hasItems: true
 itemCapacity: 30
+craftTime: 120
