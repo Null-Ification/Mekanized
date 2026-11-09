@@ -13,6 +13,7 @@ hasItems: true
 itemCapacity: 10
 separateItemCapacity: true
 craftTime: 120
+buildTime: 120
 
 requirements: [
     mekanized-ox-stone/30
