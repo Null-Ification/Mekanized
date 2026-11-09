@@ -45,46 +45,62 @@ Events.on(EventType.ModContentLoadEvent, () => {
                 },
 
                 display: function(stats) {
+                    const StatValues =
+                        Packages.mindustry.world.meta.StatValues;
+
+                    const Table =
+                        Packages.arc.scene.ui.layout.Table;
+
+                    const Styles =
+                        Packages.mindustry.ui.Styles;
+
                     stats.add(
                         Packages.mindustry.world.meta.Stat.input,
                         new JavaAdapter(
                             Packages.mindustry.world.meta.StatValue,
                             {
                                 display: function(table) {
-                                    const StatValues =
-                                        Packages.mindustry.world.meta.StatValues;
-
                                     // Common input
-                                    table.add("[lightgray]Common input").left().row();
+                                    table.add("[lightgray]Common Input").left().row();
 
                                     table.add(
                                         StatValues.displayItem(coal, 1, 120, true)
-                                    ).left().row();
+                                    ).left().padBottom(8).row();
 
-                                    // Recipe list
-                                    table.add("[lightgray]Recipes").left().padTop(8).row();
+                                    // Recipe heading
+                                    table.add("[lightgray]Recipes").left().row();
 
-                                    // Raw Iron -> Iron
-                                    table.add(
+                                    // Iron recipe panel
+                                    const ironRecipe = new Table(Styles.grayPanel);
+                                    ironRecipe.margin(8);
+
+                                    ironRecipe.add(
                                         StatValues.displayItem(rawIron, 1, 120, true)
                                     ).left();
 
-                                    table.add(" → ").padLeft(5).padRight(5);
+                                    ironRecipe.add(" > ").padLeft(8).padRight(8);
 
-                                    table.add(
+                                    ironRecipe.add(
                                         StatValues.displayItem(iron, 1, 120, true)
-                                    ).left().row();
+                                    ).left();
 
-                                    // Raw Copper -> Copper
-                                    table.add(
+                                    table.add(ironRecipe).left().padBottom(5).row();
+
+                                    // Copper recipe panel
+                                    const copperRecipe = new Table(Styles.grayPanel);
+                                    copperRecipe.margin(8);
+
+                                    copperRecipe.add(
                                         StatValues.displayItem(rawCopper, 1, 120, true)
                                     ).left();
 
-                                    table.add(" → ").padLeft(5).padRight(5);
+                                    copperRecipe.add(" > ").padLeft(8).padRight(8);
 
-                                    table.add(
+                                    copperRecipe.add(
                                         StatValues.displayItem(copper, 1, 120, true)
-                                    ).left().row();
+                                    ).left();
+
+                                    table.add(copperRecipe).left().row();
                                 }
                             }
                         )
