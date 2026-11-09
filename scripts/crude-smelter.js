@@ -27,11 +27,6 @@ Events.on(EventType.ModContentLoadEvent, () => {
 
     smelter.outputItem = null;
 
-    smelter.outputItems = ItemStack.with(
-        iron, 1,
-        copper, 1
-    );
-
     smelter.consume(
         new JavaAdapter(
             Packages.mindustry.world.consumers.Consume,
@@ -45,6 +40,12 @@ Events.on(EventType.ModContentLoadEvent, () => {
                 },
 
                 display: function(stats) {
+                    const Stat =
+                        Packages.mindustry.world.meta.Stat;
+
+                    const StatValue =
+                        Packages.mindustry.world.meta.StatValue;
+
                     const StatValues =
                         Packages.mindustry.world.meta.StatValues;
 
@@ -54,56 +55,68 @@ Events.on(EventType.ModContentLoadEvent, () => {
                     const Styles =
                         Packages.mindustry.ui.Styles;
 
+                    // INPUT: common Coal ingredient.
                     stats.add(
-                        Packages.mindustry.world.meta.Stat.input,
-                        new JavaAdapter(
-                            Packages.mindustry.world.meta.StatValue,
-                            {
-                                display: function(table) {
-                                    // Common input
-                                    table.add("[lightgray]Common Input").left().row();
-
-                                    table.add(
-                                        StatValues.displayItem(coal, 1, 120, true)
-                                    ).left().padBottom(8).row();
-
-                                    // Recipe heading
-                                    table.add("[lightgray]Recipes").left().row();
-
-                                    // Iron recipe panel
-                                    const ironRecipe = new Table(Styles.grayPanel);
-                                    ironRecipe.margin(8);
-
-                                    ironRecipe.add(
-                                        StatValues.displayItem(rawIron, 1, 120, true)
-                                    ).left();
-
-                                    ironRecipe.add(" > ").padLeft(8).padRight(8);
-
-                                    ironRecipe.add(
-                                        StatValues.displayItem(iron, 1, 120, true)
-                                    ).left();
-
-                                    table.add(ironRecipe).left().padBottom(5).row();
-
-                                    // Copper recipe panel
-                                    const copperRecipe = new Table(Styles.grayPanel);
-                                    copperRecipe.margin(8);
-
-                                    copperRecipe.add(
-                                        StatValues.displayItem(rawCopper, 1, 120, true)
-                                    ).left();
-
-                                    copperRecipe.add(" > ").padLeft(8).padRight(8);
-
-                                    copperRecipe.add(
-                                        StatValues.displayItem(copper, 1, 120, true)
-                                    ).left();
-
-                                    table.add(copperRecipe).left().row();
-                                }
+                        Stat.input,
+                        new JavaAdapter(StatValue, {
+                            display: function(table) {
+                                table.add(
+                                    StatValues.displayItem(coal, 1, 120, true)
+                                ).left();
                             }
-                        )
+                        })
+                    );
+
+                    // OUTPUT: custom recipe cards.
+                    stats.add(
+                        Stat.output,
+                        new JavaAdapter(StatValue, {
+                            display: function(table) {
+                                // Iron recipe.
+                                const ironRecipe = new Table(Styles.grayPanel);
+                                ironRecipe.margin(8);
+
+                                ironRecipe.add(
+                                    StatValues.displayItem(rawIron, 1, 120, true)
+                                ).left();
+
+                                ironRecipe.add(" > ")
+                                    .padLeft(8).padRight(8);
+
+                                ironRecipe.add(
+                                    StatValues.displayItem(iron, 1, 120, true)
+                                ).left();
+
+                                // Copper recipe.
+                                const copperRecipe = new Table(Styles.grayPanel);
+                                copperRecipe.margin(8);
+
+                                copperRecipe.add(
+                                    StatValues.displayItem(rawCopper, 1, 120, true)
+                                ).left();
+
+                                copperRecipe.add(" > ")
+                                    .padLeft(8).padRight(8);
+
+                                copperRecipe.add(
+                                    StatValues.displayItem(copper, 1, 120, true)
+                                ).left();
+
+                                // Fixed dimensions for both recipe cards.
+                                table.add(ironRecipe)
+                                    .width(320)
+                                    .height(72)
+                                    .left()
+                                    .padBottom(6)
+                                    .row();
+
+                                table.add(copperRecipe)
+                                    .width(320)
+                                    .height(72)
+                                    .left()
+                                    .row();
+                            }
+                        })
                     );
                 }
             }
