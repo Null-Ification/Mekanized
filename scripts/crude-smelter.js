@@ -193,6 +193,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
                     }
 
                     const canSmelt =
+                        this.enabled &&
                         input != null &&
                         this.items.get(coal) > 0 &&
                         this.items.get(output) < 10;
