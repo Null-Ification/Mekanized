@@ -3,5 +3,13 @@ Events.on(EventType.ModContentLoadEvent, () => {
         "mekanized-crude-smelter"
     );
 
-    print("Crude Smelter lookup: " + smelter);
+    smelter.buildType = prov(() =>
+        new JavaAdapter(
+            GenericCrafter.GenericCrafterBuild,
+            {},
+            smelter
+        )
+    );
+
+    print("Crude Smelter building type assigned!");
 });
