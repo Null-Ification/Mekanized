@@ -37,10 +37,6 @@ Events.on(EventType.ModContentLoadEvent, () => {
             GenericCrafter.GenericCrafterBuild,
             {
                 acceptItem: function(source, item) {
-                    if (this.items.total() >= smelter.itemCapacity) {
-                        return false;
-                    }
-
                     if (item == coal) {
                         return this.items.get(coal) < 10;
                     }

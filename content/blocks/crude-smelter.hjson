@@ -7,7 +7,9 @@ health: 120
 
 category: crafting
 buildVisibility: shown
+enableDrawStatus: true
 
 hasItems: true
-itemCapacity: 30
+itemCapacity: 10
+separateItemCapacity: true
 craftTime: 120
