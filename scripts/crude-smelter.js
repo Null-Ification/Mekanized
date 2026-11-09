@@ -59,6 +59,12 @@ Events.on(EventType.ModContentLoadEvent, () => {
                 },
 
                 updateTile: function() {
+                    print(
+                        "Efficiency: " + this.efficiency +
+                        " | Enabled: " + this.enabled +
+                        " | Working: " + (this.items.get(rawIron) > 0 ||
+                                        this.items.get(rawCopper) > 0)
+                    );
                     this.dump(iron);
                     this.dump(copper);
 
