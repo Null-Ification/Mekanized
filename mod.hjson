@@ -1,0 +1,8 @@
+name: mekanized
+displayName: Mekanized
+author: Null (In a List)
+description: A new industrial world. Hopefully a cure for my lazy passion.
+version: 0.1
+minGameVersion: 160
+dependencies: []
+hidden: false
