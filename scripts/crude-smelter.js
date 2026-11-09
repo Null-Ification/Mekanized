@@ -107,14 +107,10 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                 recipes.defaults().left();
 
                                 recipes.add(ironRecipe)
-                                    .width(320)
-                                    .height(72)
                                     .padBottom(6)
                                     .row();
 
                                 recipes.add(copperRecipe)
-                                    .width(320)
-                                    .height(72)
                                     .row();
 
                                 // Add the container to the stats table.
