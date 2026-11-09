@@ -26,6 +26,10 @@ Events.on(EventType.ModContentLoadEvent, () => {
     const craftTime = 120;
 
     smelter.outputItem = null;
+    smelter.outputItems = ItemStack.with(
+        iron, 1,
+        copper, 1
+    );
 
     smelter.consume(
         new JavaAdapter(
@@ -36,7 +40,14 @@ Events.on(EventType.ModContentLoadEvent, () => {
                     const hasCopper = build.items.get(rawCopper) > 0;
                     const hasCoal = build.items.get(coal) > 0;
 
-                    return (hasIron || hasCopper) && hasCoal ? 1 : 0;
+                    const ironFull = build.items.get(iron) >= 10;
+                    const copperFull = build.items.get(copper) >= 10;
+
+                    const outputFull =
+                        (hasIron && ironFull) ||
+                        (hasCopper && copperFull);
+
+                    return (hasIron || hasCopper) && hasCoal && !outputFull ? 1 : 0;
                 },
 
                 display: function(stats) {
@@ -177,7 +188,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
                         ) {
                             this.progress += Time.delta;
 
-                                                        if (this.progress >= craftTime) {
+                            if (this.progress >= craftTime) {
                                 this.items.remove(input, 1);
                                 this.items.remove(coal, 1);
                                 this.items.add(output, 1);
