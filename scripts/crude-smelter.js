@@ -106,17 +106,19 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                 recipes.defaults().left();
 
                                 recipes.add(ironRecipe)
+                                    .growX()
                                     .padBottom(6)
                                     .row();
 
                                 recipes.add(copperRecipe)
+                                    .growX()
                                     .row();
 
                                 table.row();
 
                                 // Add the recipe cards
                                 table.add(recipes)
-                                    .width(340)
+                                    .growX()
                                     .left()
                                     .row();
                             }
