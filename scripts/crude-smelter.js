@@ -166,6 +166,17 @@ Events.on(EventType.ModContentLoadEvent, () => {
                     return false;
                 },
 
+                shouldConsume: function() {
+                    const hasIron = this.items.get(rawIron) > 0;
+                    const hasCopper = this.items.get(rawCopper) > 0;
+
+                    const outputFull =
+                        (hasIron && this.items.get(iron) >= 10) ||
+                        (hasCopper && this.items.get(copper) >= 10);
+
+                    return this.enabled && !outputFull;
+                },
+
                 updateTile: function() {
                     this.dump(iron);
                     this.dump(copper);
