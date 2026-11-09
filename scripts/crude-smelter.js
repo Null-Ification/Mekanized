@@ -208,8 +208,8 @@ Events.on(EventType.ModContentLoadEvent, () => {
                             this.items.add(output, 1);
 
                             const effectColor = output == iron
-                                ? Color.valueOf("ffc099")
-                                : Color.valueOf("e58b4a");
+                                ? Color.valueOf("b5b5b5")
+                                : Color.valueOf("b87333");
 
                             Fx.mine.at(this.x, this.y, effectColor);
 
