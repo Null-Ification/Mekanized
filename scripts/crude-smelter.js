@@ -33,35 +33,66 @@ Events.on(EventType.ModContentLoadEvent, () => {
     );
 
     smelter.consume(
-    new JavaAdapter(
-        Packages.mindustry.world.consumers.Consume,
-        {
-            efficiency: function(build) {
-                const hasIron = build.items.get(rawIron) > 0;
-                const hasCopper = build.items.get(rawCopper) > 0;
-                const hasCoal = build.items.get(coal) > 0;
+        new JavaAdapter(
+            Packages.mindustry.world.consumers.Consume,
+            {
+                efficiency: function(build) {
+                    const hasIron = build.items.get(rawIron) > 0;
+                    const hasCopper = build.items.get(rawCopper) > 0;
+                    const hasCoal = build.items.get(coal) > 0;
 
-                return (hasIron || hasCopper) && hasCoal ? 1 : 0;
-            },
+                    return (hasIron || hasCopper) && hasCoal ? 1 : 0;
+                },
 
-            display: function(stats) {
-                stats.add(
-                    Packages.mindustry.world.meta.Stat.input,
-                    Packages.mindustry.world.meta.StatValues.string(
-                        "1 Raw Iron + 1 Coal -> 1 Iron (2 seconds)"
-                    )
-                );
+                display: function(stats) {
+                    stats.add(
+                        Packages.mindustry.world.meta.Stat.input,
+                        new JavaAdapter(
+                            Packages.mindustry.world.meta.StatValue,
+                            {
+                                display: function(table) {
+                                    const StatValues =
+                                        Packages.mindustry.world.meta.StatValues;
 
-                stats.add(
-                    Packages.mindustry.world.meta.Stat.input,
-                    Packages.mindustry.world.meta.StatValues.string(
-                        "1 Raw Copper + 1 Coal -> 1 Copper (2 seconds)"
-                    )
-                );
+                                    // Common input
+                                    table.add("[lightgray]Common input").left().row();
+
+                                    table.add(
+                                        StatValues.displayItem(coal, 1, 120, true)
+                                    ).left().row();
+
+                                    // Recipe list
+                                    table.add("[lightgray]Recipes").left().padTop(8).row();
+
+                                    // Raw Iron -> Iron
+                                    table.add(
+                                        StatValues.displayItem(rawIron, 1, 120, true)
+                                    ).left();
+
+                                    table.add(" → ").padLeft(5).padRight(5);
+
+                                    table.add(
+                                        StatValues.displayItem(iron, 1, 120, true)
+                                    ).left().row();
+
+                                    // Raw Copper -> Copper
+                                    table.add(
+                                        StatValues.displayItem(rawCopper, 1, 120, true)
+                                    ).left();
+
+                                    table.add(" → ").padLeft(5).padRight(5);
+
+                                    table.add(
+                                        StatValues.displayItem(copper, 1, 120, true)
+                                    ).left().row();
+                                }
+                            }
+                        )
+                    );
+                }
             }
-        }
-    )
-);
+        )
+    );
 
     smelter.buildType = prov(() =>
         new JavaAdapter(
