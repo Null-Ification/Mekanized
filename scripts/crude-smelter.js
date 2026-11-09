@@ -25,9 +25,11 @@ Events.on(EventType.ModContentLoadEvent, () => {
 
     const craftTime = 120;
 
-    smelter.outputItem = new ItemStack(
-        Vars.content.item("mekanized-ox-iron"),
-        1
+    smelter.outputItem = null;
+
+    smelter.outputItems = ItemStack.with(
+        iron, 1,
+        copper, 1
     );
 
     smelter.buildType = prov(() =>
