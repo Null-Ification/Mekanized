@@ -1,7 +1,7 @@
-print("Block count: " + Vars.content.blocks().size);
+Events.on(EventType.ModContentLoadEvent, () => {
+    const smelter = Vars.content.block(
+        "mekanized-crude-smelter"
+    );
 
-Vars.content.blocks().each(block => {
-    if (block.name.indexOf("mekanized") !== -1) {
-        print("Found block: " + block.name);
-    }
+    print("Crude Smelter lookup: " + smelter);
 });
