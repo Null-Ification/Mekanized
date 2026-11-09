@@ -1,4 +1,3 @@
-
 Events.on(EventType.ModContentLoadEvent, () => {
     const smelter = Vars.content.block(
         "mekanized-crude-smelter"
@@ -25,6 +24,11 @@ Events.on(EventType.ModContentLoadEvent, () => {
     );
 
     const craftTime = 120;
+
+    smelter.outputItem = new ItemStack(
+        Vars.content.item("mekanized-ox-iron"),
+        1
+    );
 
     smelter.buildType = prov(() =>
         new JavaAdapter(
