@@ -25,6 +25,16 @@ Events.on(EventType.ModContentLoadEvent, () => {
 
     const craftTime = 120;
 
+    // Kiln slops
+    const DrawMulti = Packages.mindustry.world.draw.DrawMulti;
+    const DrawDefault = Packages.mindustry.world.draw.DrawDefault;
+    const DrawFlame = Packages.mindustry.world.draw.DrawFlame;
+
+    smelter.drawer = new DrawMulti(
+        new DrawDefault(),
+        new DrawFlame(Color.valueOf("ffc099"))
+    );
+
     smelter.outputItem = null;
     smelter.outputItems = ItemStack.with();
 
@@ -189,6 +199,8 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                 this.items.remove(input, 1);
                                 this.items.remove(coal, 1);
                                 this.items.add(output, 1);
+
+                                Fx.mine.at(this.x, this.y);
 
                                 this.progress -= craftTime;
                             }
