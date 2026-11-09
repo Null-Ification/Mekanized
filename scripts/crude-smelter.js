@@ -55,7 +55,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
                     const Styles =
                         Packages.mindustry.ui.Styles;
 
-                    // INPUT: common Coal ingredient.
+                    // INPUT
                     stats.add(
                         Stat.input,
                         new JavaAdapter(StatValue, {
@@ -102,7 +102,6 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                     StatValues.displayItem(copper, 1, 120, true)
                                 ).left();
 
-                                // Put both recipe cards inside a vertical container.
                                 const recipes = new Table();
                                 recipes.defaults().left();
 
@@ -113,7 +112,9 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                 recipes.add(copperRecipe)
                                     .row();
 
-                                // Place the recipe cards below the Output heading.
+                                table.row();
+
+                                // Add the recipe cards
                                 table.add(recipes)
                                     .width(340)
                                     .left()
@@ -153,12 +154,6 @@ Events.on(EventType.ModContentLoadEvent, () => {
                 },
 
                 updateTile: function() {
-                    print(
-                        "Efficiency: " + this.efficiency +
-                        " | Enabled: " + this.enabled +
-                        " | Working: " + (this.items.get(rawIron) > 0 ||
-                                        this.items.get(rawCopper) > 0)
-                    );
                     this.dump(iron);
                     this.dump(copper);
 
@@ -186,12 +181,6 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                 this.items.add(output, 1);
 
                                 this.progress -= craftTime;
-
-                                print(
-                                    "Crude Smelter produced " +
-                                    output.localizedName + "!"
-                                );
-                            }
                         }
                     }
                 }
@@ -199,6 +188,4 @@ Events.on(EventType.ModContentLoadEvent, () => {
             smelter
         )
     );
-
-    print("Crude Smelter multi-recipe system assigned!");
 });
