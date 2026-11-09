@@ -102,8 +102,23 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                     StatValues.displayItem(copper, 1, 120, true)
                                 ).left();
 
-                                table.add(ironRecipe).width(320).height(72).left().row();
-                                table.add(copperRecipe).width(320).height(72).left().row();
+                                // Put both recipe cards inside a vertical container.
+                                const recipes = new Table();
+                                recipes.defaults().left();
+
+                                recipes.add(ironRecipe)
+                                    .width(320)
+                                    .height(72)
+                                    .padBottom(6)
+                                    .row();
+
+                                recipes.add(copperRecipe)
+                                    .width(320)
+                                    .height(72)
+                                    .row();
+
+                                // Add the container to the stats table.
+                                table.add(recipes).left().row();
                             }
                         })
                     );
