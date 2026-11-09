@@ -32,6 +32,21 @@ Events.on(EventType.ModContentLoadEvent, () => {
         copper, 1
     );
 
+    smelter.consume(
+        new JavaAdapter(
+            Packages.mindustry.world.consumers.Consume,
+            {
+                efficiency: function(build) {
+                    const hasIron = build.items.get(rawIron) > 0;
+                    const hasCopper = build.items.get(rawCopper) > 0;
+                    const hasCoal = build.items.get(coal) > 0;
+
+                    return (hasIron || hasCopper) && hasCoal ? 1 : 0;
+                }
+            }
+        )
+    );
+
     smelter.buildType = prov(() =>
         new JavaAdapter(
             GenericCrafter.GenericCrafterBuild,
