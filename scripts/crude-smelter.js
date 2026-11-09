@@ -113,8 +113,11 @@ Events.on(EventType.ModContentLoadEvent, () => {
                                 recipes.add(copperRecipe)
                                     .row();
 
-                                // Add the container to the stats table.
-                                table.add(recipes).left().row();
+                                // Place the recipe cards below the Output heading.
+                                table.add(recipes)
+                                    .width(340)
+                                    .left()
+                                    .row();
                             }
                         })
                     );
