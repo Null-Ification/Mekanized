@@ -83,6 +83,14 @@ Events.on(EventType.ModContentLoadEvent, () => {
                     } else {
                         this.fuelTimer = 0;
                     }
+
+                    const actual = this.getActualEfficiency();
+
+                    if (actual > 4) {
+                        this.damage(
+                            this.maxHealth * 0.05 * Time.delta / 60
+                        );
+                    }
                 }
             },
             generator
