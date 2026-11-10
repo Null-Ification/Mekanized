@@ -10,3 +10,4 @@ buildVisibility: shown
 
 powerProduction: 1.8
 floating: true
+minEfficiency: -1
