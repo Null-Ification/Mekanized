@@ -55,8 +55,9 @@ Events.on(EventType.ModContentLoadEvent, () => {
                 fuelActive: false,
 
                 getActualEfficiency: function() {
-                    return this.productionEfficiency +
-                        (this.fuelActive ? 0.75 : 0);
+                    return this.productionEfficiency
+                        + (this.fuelActive ? 0.75 : 0)
+                        + (this.liquids.get(slag) > 0 ? 1.25 : 0);
                 },
 
                 acceptItem: function(source, item) {
