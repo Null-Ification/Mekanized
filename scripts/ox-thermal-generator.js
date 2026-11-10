@@ -44,6 +44,38 @@ Events.on(EventType.ModContentLoadEvent, () => {
         })
     );
 
+    const Block = Packages.mindustry.world.Block;
+
+    const field = Block.class.getDeclaredField("barMap");
+    field.setAccessible(true);
+
+    const barMap = field.get(generator);
+
+    const keys = barMap.orderedKeys().toArray();
+    const values = [];
+
+    for (let i = 0; i < keys.length; i++) {
+        values.push(barMap.get(keys[i]));
+    }
+
+    barMap.clear();
+
+    const desiredOrder = ["health", "efficiency", "power"];
+
+    for (let i = 0; i < desiredOrder.length; i++) {
+        const index = keys.indexOf(desiredOrder[i]);
+
+        if (index != -1) {
+            barMap.put(keys[index], values[index]);
+        }
+    }
+
+    for (let i = 0; i < keys.length; i++) {
+        if (desiredOrder.indexOf(keys[i]) == -1) {
+            barMap.put(keys[i], values[i]);
+        }
+    }
+
     generator.buildType = prov(() =>
         new JavaAdapter(
             ThermalGenerator.ThermalGeneratorBuild,
