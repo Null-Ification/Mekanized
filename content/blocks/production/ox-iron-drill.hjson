@@ -6,7 +6,7 @@ size: 2
 health: 180
 
 tier: 1
-drillTime: 30
+drillTime: 300
 liquidBoostIntensity: 1
 
 requirements: [
@@ -14,7 +14,7 @@ requirements: [
     mekanized-ox-copper/5
 ]
 
-consumesPower: true
+hasPower: true
 consumes: [
     power/0.05
 ]
