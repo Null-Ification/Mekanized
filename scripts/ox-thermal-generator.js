@@ -49,6 +49,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
             ThermalGenerator.ThermalGeneratorBuild,
             {
                 fuelTimer: 0,
+                fuelActive: false,
 
                 acceptItem: function(source, item) {
                     return item == coal && this.items.get(coal) < 10;
@@ -57,14 +58,21 @@ Events.on(EventType.ModContentLoadEvent, () => {
                 updateTile: function() {
                     this.super$updateTile();
 
-                    this.fuelTimer += Time.delta;
+                    this.fuelActive = this.items.get(coal) > 0;
 
-                    if (this.fuelTimer >= 60) {
-                        if (this.items.get(coal) > 0) {
+                    if (this.fuelActive) {
+                        this.fuelTimer += Time.delta;
+
+                        if (this.fuelTimer >= 60) {
                             this.items.remove(coal, 1);
+                            this.fuelTimer -= 60;
                         }
+                    } else {
+                        this.fuelTimer = 0;
+                    }
 
-                        this.fuelTimer -= 60;
+                    if (this.fuelActive) {
+                        this.productionEfficiency += 0.5;
                     }
                 }
             },
