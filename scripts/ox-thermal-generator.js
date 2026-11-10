@@ -13,6 +13,10 @@ Events.on(EventType.ModContentLoadEvent, () => {
             {
                 fuelTimer: 0,
 
+                acceptItem: function(source, item) {
+                    return item == coal && this.items.get(coal) < 10;
+                },
+
                 updateTile: function() {
                     this.super$updateTile();
 
