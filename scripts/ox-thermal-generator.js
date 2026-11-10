@@ -51,6 +51,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
             ThermalGenerator.ThermalGeneratorBuild,
             {
                 fuelTimer: 0,
+                slagTimer: 0,
                 fuelActive: false,
 
                 getActualEfficiency: function() {
@@ -64,7 +65,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
 
                 acceptLiquid: function(source, liquid) {
                     return liquid == slag &&
-                        this.liquids.get(slag) < 60;
+                        this.liquids.get(slag) < 90;
                 },
 
                 getPowerProduction: function() {
@@ -89,6 +90,19 @@ Events.on(EventType.ModContentLoadEvent, () => {
                         }
                     } else {
                         this.fuelTimer = 0;
+                    }
+
+                    const slagAmount = this.liquids.get(slag);
+
+                    if (slagAmount > 0) {
+                        this.slagTimer += Time.delta;
+
+                        if (this.slagTimer >= 60 / 30) {
+                            this.liquids.remove(slag, 1);
+                            this.slagTimer -= 60 / 30;
+                        }
+                    } else {
+                        this.slagTimer = 0;
                     }
 
                     const actual = this.getActualEfficiency();
