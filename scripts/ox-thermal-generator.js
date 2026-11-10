@@ -13,6 +13,12 @@ Events.on(EventType.ModContentLoadEvent, () => {
             {
                 fuelTimer: 0,
 
+                created: function() {
+                    this.super$created();
+
+                    this.items = new ItemModule();
+                },
+
                 updateTile: function() {
                     this.super$updateTile();
 
