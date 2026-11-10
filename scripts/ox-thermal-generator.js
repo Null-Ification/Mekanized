@@ -44,18 +44,6 @@ Events.on(EventType.ModContentLoadEvent, () => {
         })
     );
 
-    const field = generator.getClass().getSuperclass()
-        .getDeclaredField("barMap");
-
-    field.setAccessible(true);
-
-    const barMap = field.get(generator);
-
-    print("Bar order:");
-    for (let i = 0; i < barMap.size; i++) {
-        print(i + ": " + barMap.orderedKeys().get(i));
-    }
-
     generator.buildType = prov(() =>
         new JavaAdapter(
             ThermalGenerator.ThermalGeneratorBuild,
