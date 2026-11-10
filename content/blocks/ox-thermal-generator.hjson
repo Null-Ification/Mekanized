@@ -12,4 +12,5 @@ powerProduction: 1.8
 floating: true
 minEfficiency: -1
 
+hasItems: true
 itemCapacity: 10
