@@ -50,6 +50,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
             {
                 fuelTimer: 0,
                 fuelActive: false,
+                actualEfficiency: 0,
 
                 acceptItem: function(source, item) {
                     return item == coal && this.items.get(coal) < 10;
@@ -71,9 +72,13 @@ Events.on(EventType.ModContentLoadEvent, () => {
                         this.fuelTimer = 0;
                     }
 
-                    if (this.fuelActive) {
-                        this.productionEfficiency += 0.5;
-                    }
+                    this.actualEfficiency =
+                        this.productionEfficiency + (this.fuelActive ? 0.75 : 0);
+
+                    this.productionEfficiency = Math.min(
+                        this.actualEfficiency,
+                        3
+                    );
                 }
             },
             generator
