@@ -6,11 +6,17 @@ size: 2
 health: 180
 
 tier: 1
-drillTime: 120
+drillTime: 30
+liquidBoostIntensity: 1
 
 requirements: [
     mekanized-ox-iron/10
     mekanized-ox-copper/5
+]
+
+consumesPower: true
+consumes: [
+    power/0.05
 ]
 
 category: production
