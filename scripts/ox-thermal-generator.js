@@ -14,7 +14,8 @@ Events.on(EventType.ModContentLoadEvent, () => {
     const Func = Packages.arc.func.Func;
     const Floatp = Packages.arc.func.Floatp;
 
-    generator.addBar(
+    generator.addBarAfter(
+        "health",
         "efficiency",
         new JavaAdapter(Func, {
             get: function(build) {
