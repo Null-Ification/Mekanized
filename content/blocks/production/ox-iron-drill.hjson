@@ -16,7 +16,7 @@ requirements: [
 
 hasPower: true
 consumes: {
-    power: 0.83333
+    power: 0.05
 }
 
 category: production
