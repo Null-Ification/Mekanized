@@ -2,7 +2,7 @@ type: Duct
 name: Iron Duct
 description: Transport item.
 category: distribution
-speed: 15
+speed: 5
 health: 45
 requirements: [
     ox-iron/1
