@@ -46,7 +46,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
 
     const Block = Packages.mindustry.world.Block;
 
-    const field = Block.class.getDeclaredField("barMap");
+    const field = Block["class"].getDeclaredField("barMap");
     field.setAccessible(true);
 
     const barMap = field.get(generator);
