@@ -22,7 +22,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
                     new JavaAdapter(Prov, {
                         get: function() {
                             return "Efficiency: " +
-                                Math.round(build.productionEfficiency * 100) + "%";
+                                Math.round(build.actualEfficiency * 100) + "%";
                         }
                     }),
 
@@ -35,7 +35,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
                     new JavaAdapter(Floatp, {
                         get: function() {
                             return Mathf.clamp(
-                                build.productionEfficiency / 4
+                                build.actualEfficiency / 4
                             );
                         }
                     })
