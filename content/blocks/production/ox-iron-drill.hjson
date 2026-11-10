@@ -1,0 +1,17 @@
+type: Drill
+name: Iron Drill
+description: Extracts ores from the ground.
+
+size: 2
+health: 180
+
+tier: 1
+drillTime: 120
+
+requirements: [
+    mekanized-ox-iron/10
+    mekanized-ox-copper/5
+]
+
+category: production
+research: null
