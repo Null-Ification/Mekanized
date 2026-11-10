@@ -6,7 +6,7 @@ size: 2
 health: 180
 
 tier: 1
-drillTime: 300
+drillTime: 480
 liquidBoostIntensity: 1
 
 requirements: [
@@ -15,9 +15,9 @@ requirements: [
 ]
 
 hasPower: true
-consumes: [
-    power/0.05
-]
+consumes: {
+    power: 2
+}
 
 category: production
 research: null
