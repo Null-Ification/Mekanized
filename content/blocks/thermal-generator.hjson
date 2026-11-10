@@ -1,0 +1,12 @@
+type: ThermalGenerator
+name: Thermal Generator
+description: Generates power using heat.
+
+size: 2
+health: 120
+
+category: power
+buildVisibility: shown
+
+powerProduction: 1.8
+floating: true
