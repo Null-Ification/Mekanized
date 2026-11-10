@@ -2,15 +2,21 @@ type: ThermalGenerator
 name: Thermal Generator
 description: Generates power using heat.
 
-size: 2
-health: 120
+size: 3
+health: 230
 
 category: power
 buildVisibility: shown
+buildTime: 240
 
-powerProduction: 1.8
+powerProduction: 5
 floating: true
 minEfficiency: -1
+
+requirements: [
+    mekanized-ox-iron/100
+    mekanized-ox-copper/40
+]
 
 hasItems: true
 itemCapacity: 10
