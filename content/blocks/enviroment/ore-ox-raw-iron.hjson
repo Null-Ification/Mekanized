@@ -1,0 +1,9 @@
+type: OreBlock
+name: Raw Iron
+
+itemDrop: mekanized-ox-raw-iron
+
+variants: 3
+oreDefault: true
+oreScale: 24
+oreThreshold: 0.828

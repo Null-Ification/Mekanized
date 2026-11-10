@@ -1,0 +1,9 @@
+type: OreBlock
+name: Raw Copper
+
+itemDrop: mekanized-ox-raw-copper
+
+variants: 3
+oreDefault: true
+oreScale: 24
+oreThreshold: 0.828

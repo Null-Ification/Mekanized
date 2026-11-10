@@ -1,0 +1,9 @@
+type: OreBlock
+name: Coal Ore
+
+itemDrop: mekanized-ox-coal
+
+variants: 3
+oreDefault: true
+oreScale: 24
+oreThreshold: 0.828

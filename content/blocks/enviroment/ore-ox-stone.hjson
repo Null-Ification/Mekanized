@@ -3,7 +3,5 @@ name: Stone Tile
 
 itemDrop: mekanized-ox-stone
 
-variants: 3
-oreDefault: true
-oreScale: 24
-oreThreshold: 0.828
+variants: 1
+oreDefault: false
