@@ -88,7 +88,7 @@ Events.on(EventType.ModContentLoadEvent, () => {
 
                     if (actual > 4) {
                         this.damage(
-                            this.maxHealth * 0.05 * Time.delta / 60
+                            this.maxHealth * 0.1 * Time.delta / 60
                         );
                     }
                 }
