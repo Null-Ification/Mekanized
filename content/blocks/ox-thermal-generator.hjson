@@ -14,3 +14,6 @@ minEfficiency: -1
 
 hasItems: true
 itemCapacity: 10
+
+hasLiquids: true
+liquidCapacity: 90

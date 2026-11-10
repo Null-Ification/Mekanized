@@ -7,6 +7,8 @@ Events.on(EventType.ModContentLoadEvent, () => {
         "mekanized-ox-coal"
     );
 
+    const slag = Vars.content.liquid("slag");
+
     const Bar = Packages.mindustry.ui.Bar;
     const Pal = Packages.mindustry.graphics.Pal;
 
@@ -58,6 +60,11 @@ Events.on(EventType.ModContentLoadEvent, () => {
 
                 acceptItem: function(source, item) {
                     return item == coal && this.items.get(coal) < 10;
+                },
+
+                acceptLiquid: function(source, liquid) {
+                    return liquid == slag &&
+                        this.liquids.get(slag) < 60;
                 },
 
                 getPowerProduction: function() {
