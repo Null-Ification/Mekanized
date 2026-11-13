@@ -28,7 +28,7 @@ consumes: {
     ]
 }
 
-outputLiquid: ox-steam/10
+outputLiquid: ox-steam/0.5
 
 drawer: {
     type: DrawMulti
