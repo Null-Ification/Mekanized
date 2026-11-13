@@ -1,4 +1,4 @@
-type: GenericCrafter
+type: AttributeCrafter
 name: Thermal Boiler
 description: Produces steam using heat.
 
@@ -26,6 +26,11 @@ consumes: {
     items: [
         ox-coal/1
     ]
+    liquid: {
+        liquid: water,
+        amount: 0.1,
+        booster: true
+    }
 }
 
 outputLiquid: ox-steam/0.5
@@ -39,7 +44,7 @@ drawer: {
         }
         {
             type: DrawLiquidTile
-            drawLiquid: ox-steam
+            drawLiquid: water
             padLeft: -4
             padTop: 4
             padBottom: -4
