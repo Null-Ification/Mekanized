@@ -29,14 +29,14 @@ consumes: {
     ]
     liquid: {
         liquid: water,
-        amount: 0.1,
+        amount: 0.5,
         booster: true,
         optional: true,
     }
 }
 
 maxBoost: 3
-boostScale: 0.5
+boostScale: 0.25
 
 outputLiquid: ox-steam/0.5
 
