@@ -5,7 +5,7 @@ description: Produces steam using heat.
 size: 3
 health: 230
 
-category: production
+category: crafting
 buildVisibility: shown
 buildTime: 240
 
@@ -20,10 +20,28 @@ hasItems: true
 itemCapacity: 10
 
 hasLiquids: true
-liquidCapacity: 90
+liquidCapacity: 100
 
 consumes: {
     items: [
         ox-coal/1
+    ]
+}
+
+outputLiquid: ox-steam/10
+
+drawer: {
+    type: DrawMulti
+    drawers: [
+        {
+            type: DrawDefault
+        }
+        {
+            type: DrawWarmupRegion
+        }
+        {
+            type: DrawLiquidRegion
+            drawLiquid: ox-steam
+        }
     ]
 }
