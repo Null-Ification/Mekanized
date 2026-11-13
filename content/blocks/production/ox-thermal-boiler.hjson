@@ -37,11 +37,12 @@ consumes: {
 
 baseEfficiency: 1
 boostScale: 0
-outputScale: 0.15
+outputScale: 0.375
 maxBoost: 1
 
 outputLiquid: ox-steam/0.5
 
+craftEffect: redgeneratespark
 drawer: {
     type: DrawMulti
     drawers: [
