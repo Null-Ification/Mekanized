@@ -1,17 +1,19 @@
-type: ThermalGenerator
-name: Thermal Generator
-description: Generates power using heat.
+type: AttributeCrafter
+name: Thermal Boiler
+description: Produces steam using heat.
 
 size: 3
 health: 230
 
-category: power
+category: production
 buildVisibility: shown
 buildTime: 240
 
-powerProduction: 5
-floating: true
-minEfficiency: -1
+craftTime: 60
+
+attribute: heat
+baseEfficiency: 0
+maxBoost: 1
 
 requirements: [
     ox-iron/100

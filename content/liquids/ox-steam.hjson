@@ -1,0 +1,8 @@
+name: Steam
+description: Hot vapor produced by heating water. (Mostly)
+
+temperature: 1
+viscosity: 0.1
+flammability: 0
+explosiveness: 0
+heatCapacity: 0
