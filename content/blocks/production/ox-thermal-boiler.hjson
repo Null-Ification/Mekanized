@@ -10,6 +10,7 @@ buildVisibility: shown
 buildTime: 240
 
 craftTime: 60
+attribute: heat
 
 requirements: [
     ox-iron/100
@@ -32,6 +33,9 @@ consumes: {
         booster: true
     }
 }
+
+maxBoost: 3
+outputScale: 0.5
 
 outputLiquid: ox-steam/0.5
 
