@@ -34,14 +34,22 @@ drawer: {
     type: DrawMulti
     drawers: [
         {
-            type: DrawDefault
+            type: DrawRegion
+            suffix: -bottom
         }
         {
             type: DrawWarmupRegion
         }
         {
-            type: DrawLiquidRegion
+            type: DrawLiquidTile
             drawLiquid: ox-steam
+            padLeft: -4
+            padTop: 4
+            padBottom: -4
+            padRight: 4
+        }
+        {
+            type: DrawDefault
         }
     ]
 }
