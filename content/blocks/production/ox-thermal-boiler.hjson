@@ -38,9 +38,6 @@ drawer: {
             suffix: -bottom
         }
         {
-            type: DrawWarmupRegion
-        }
-        {
             type: DrawLiquidTile
             drawLiquid: ox-steam
             padLeft: -4
@@ -50,6 +47,9 @@ drawer: {
         }
         {
             type: DrawDefault
+        }
+        {
+            type: DrawWarmupRegion
         }
     ]
 }
