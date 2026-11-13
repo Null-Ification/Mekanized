@@ -4,6 +4,7 @@ description: Hot vapor produced by heating water. (Mostly)
 color: dceeff
 barColor: dceeff
 
+gas: true
 temperature: 1
 viscosity: 0.1
 flammability: 0
