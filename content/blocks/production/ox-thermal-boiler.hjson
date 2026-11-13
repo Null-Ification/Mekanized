@@ -27,10 +27,15 @@ consumes: {
     items: [
         ox-coal/1
     ]
+    liquid: {
+        liquid: water,
+        amount: 0.1,
+        booster: true
+    }
 }
 
 maxBoost: 3
-outputScale: 0.5
+boostScale: 0.5
 
 outputLiquid: ox-steam/0.5
 
