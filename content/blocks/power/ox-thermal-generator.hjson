@@ -14,8 +14,8 @@ floating: true
 minEfficiency: -1
 
 requirements: [
-    mekanized-ox-iron/100
-    mekanized-ox-copper/40
+    ox-iron/100
+    ox-copper/40
 ]
 
 hasItems: true

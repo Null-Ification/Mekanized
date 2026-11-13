@@ -16,5 +16,5 @@ craftTime: 120
 buildTime: 120
 
 requirements: [
-    mekanized-ox-stone/30
+    ox-stone/30
 ]

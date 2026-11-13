@@ -1,9 +1,21 @@
 type: Duct
-name: Iron Duct
-description: Transport item.
+size: 1
+speed: 4 # 60 / speed = item/s
+health: 10
+
+name: Iron Pipe
+description: Move item forward.
 category: distribution
-speed: 4
-health: 45
-requirements: [
+
+alwaysUnlocked: false # Unlocked by default in tech tree
+research: ox-iron
+researchCost: [
+    ox-iron/5
+]
+
+requirements: [ # Build cost
     ox-iron/1
 ]
+
+bridgeReplacement: ox-iron-tunnel # For auto bridge placement
+junctionReplacement: ox-iron-junction # For auto junction placement

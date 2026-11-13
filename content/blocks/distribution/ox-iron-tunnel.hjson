@@ -1,0 +1,21 @@
+type: DuctBridge
+size: 1
+speed: 4 # 60 / speed = item/s
+range: 4 # true range is range - 1, since it count itself.
+health: 20
+
+name: Iron Tunnel
+description: Used for crossing terrain.
+category: distribution
+
+alwaysUnlocked: false # Unlocked by default in tech tree
+research: ox-iron-duct
+researchCost: [
+    ox-iron/25
+]
+
+requirements: [ # Build cost
+    ox-iron/5
+]
+
+squareSprite: false

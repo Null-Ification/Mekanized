@@ -1,7 +1,7 @@
 type: OreBlock
 name: Stone Tile
 
-itemDrop: mekanized-ox-stone
+itemDrop: ox-stone
 
 variants: 1
 oreDefault: false

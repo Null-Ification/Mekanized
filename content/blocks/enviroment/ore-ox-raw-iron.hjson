@@ -1,7 +1,7 @@
 type: OreBlock
 name: Raw Iron
 
-itemDrop: mekanized-ox-raw-iron
+itemDrop: ox-raw-iron
 
 variants: 3
 oreDefault: true

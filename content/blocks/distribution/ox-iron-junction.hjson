@@ -1,0 +1,18 @@
+type: DuctJunction
+size: 1
+speed: 4 # 60 / speed = item/s
+health: 10
+
+name: Pipe Junction
+description: Allows for crossing pipe.
+category: distribution
+
+alwaysUnlocked: false # Unlocked by default in tech tree
+research: ox-iron-duct
+researchCost: [
+    ox-iron/20
+]
+
+requirements: [ # Build cost
+    ox-iron/3
+]

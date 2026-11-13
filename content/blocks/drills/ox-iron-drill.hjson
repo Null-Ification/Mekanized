@@ -10,8 +10,8 @@ drillTime: 480
 liquidBoostIntensity: 1
 
 requirements: [
-    mekanized-ox-iron/10
-    mekanized-ox-copper/5
+    ox-iron/10
+    ox-copper/5
 ]
 
 hasPower: true

@@ -1,7 +1,7 @@
 type: OreBlock
 name: Coal Ore
 
-itemDrop: mekanized-ox-coal
+itemDrop: ox-coal
 
 variants: 3
 oreDefault: true

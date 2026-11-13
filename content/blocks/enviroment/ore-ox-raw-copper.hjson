@@ -1,7 +1,7 @@
 type: OreBlock
 name: Raw Copper
 
-itemDrop: mekanized-ox-raw-copper
+itemDrop: ox-raw-copper
 
 variants: 3
 oreDefault: true
