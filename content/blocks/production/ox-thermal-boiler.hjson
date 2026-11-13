@@ -1,4 +1,4 @@
-type: AttributeCrafter
+type: GenericCrafter
 name: Thermal Boiler
 description: Produces steam using heat.
 
@@ -11,10 +11,6 @@ buildTime: 240
 
 craftTime: 60
 
-attribute: heat
-baseEfficiency: 0
-maxBoost: 1
-
 requirements: [
     ox-iron/100
     ox-copper/40
@@ -25,3 +21,9 @@ itemCapacity: 10
 
 hasLiquids: true
 liquidCapacity: 90
+
+consumes: {
+    items: [
+        ox-coal/1
+    ]
+}
