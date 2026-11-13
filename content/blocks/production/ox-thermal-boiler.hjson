@@ -27,11 +27,6 @@ consumes: {
     items: [
         ox-coal/1
     ]
-    liquid: {
-        liquid: water,
-        amount: 0.1,
-        booster: true
-    }
 }
 
 maxBoost: 3
